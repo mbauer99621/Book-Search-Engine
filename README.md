@@ -25,11 +25,11 @@ Users can:
 2. Install dependencies:
   Navigate to the project folder and install the necessary dependencies for both the front-end and back-end.
    ```bash
-   cd book-search-engine
-  npm install
-  cd client
-  npm install
-3. Set up environment variables:**
+      cd book-search-engine
+     npm install
+     cd client
+     npm install
+3. Set up environment variables:
   Create a .env file in the root directory and add your environment variables for MongoDB and any other services.
    ```bash
   MONGODB_URI=<your-mongodb-uri>
