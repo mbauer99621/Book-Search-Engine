@@ -6,7 +6,7 @@ import cors from 'cors';
 import db from './config/connection.js';
 import { typeDefs } from './schemas/typeDefs.js';
 import { resolvers } from './schemas/resolvers.js';
-import { authenticateToken } from './utils/auth.ts';
+import { authenticateToken } from './types/express/services/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,6 +21,8 @@ const server = new ApolloServer({
   resolvers,
 });
 
+console.log("wqkofkneowkd;elmfv;ekosf;")
+
 const startApolloServer = async () => {
   await server.start();
 
@@ -28,11 +30,7 @@ const startApolloServer = async () => {
   app.use(
     '/graphql',
     expressMiddleware(server, {
-      context: async ({ req }) => {
-        const authHeader = req.headers.authorization;
-        const user = authenticateToken(authHeader);
-        return { user };
-      },
+      context : authenticateToken as any
     })
   );
 
@@ -41,9 +39,15 @@ const startApolloServer = async () => {
     app.use(express.static(path.join(__dirname, '../client/build')));
   }
 
-  db.once('open', () => {
-    app.listen(PORT, () => console.log(`🌍 Server running at http://localhost:${PORT}/graphql`));
-  });
+ 
+  await db;
+  //db.once('open', () => {
+    app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}/graphql`));
+    console.log("wqkofkneowkd;elmfv;ekosf;")
+ // });
+  
 };
+
+
 
 startApolloServer();

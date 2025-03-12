@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { Request } from 'express';
 dotenv.config();
 
 interface JwtPayload {
@@ -10,10 +11,18 @@ interface JwtPayload {
 
 const secretKey = process.env.JWT_SECRET_KEY || '';
 
-export const authenticateToken = (authHeader: string | undefined) => {
-  if (!authHeader) return null;
+export const authenticateToken = ({req}:{req:Request}) => {
+  console.log("Hello");
 
-  const token = authHeader.split(' ')[1];
+
+  let token = req.body.token || req.query.token || req.headers.authorization;
+  if(!token) {
+    return req;
+  }
+  if(req.headers.authorization) {
+    token = token.split(' ').pop().trim();
+  }
+
 
   try {
     const user = jwt.verify(token, secretKey) as JwtPayload;
