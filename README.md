@@ -42,6 +42,13 @@ Users can:
    npm start
 5. Open your browser and navigate to http://localhost:3000 to view the application.
 
+## Usage
+
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Sign in or create an account.
+3. Search for books by title, author, or description.
+4. Save books to your account by clicking "Save".
+5. View or remove saved books from your profile.
 
 ## Technologies Used
 
@@ -54,6 +61,11 @@ Users can:
 - **Webpack**: For bundling JavaScript files
 - **Node.js**: For the back-end server
 - **MongoDB**: For the database
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 
