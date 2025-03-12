@@ -32,10 +32,10 @@ Users can:
 3. Set up environment variables:
   Create a .env file in the root directory and add your environment variables for MongoDB and any other services.
    ```bash
-  MONGODB_URI=<your-mongodb-uri>
-  JWT_SECRET=<your-jwt-secret>
+     MONGODB_URI=<your-mongodb-uri>
+     JWT_SECRET=<your-jwt-secret>
 4. Run the application:
-In the project root directory, start both the server and the client:
+   In the project root directory, start both the server and the client:
    ```bash
    npm start
    cd client
