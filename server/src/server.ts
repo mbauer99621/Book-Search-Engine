@@ -26,7 +26,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-console.log("wqkofkneowkd;elmfv;ekosf;")
 
 const startApolloServer = async () => {
   await server.start();
@@ -41,14 +40,13 @@ const startApolloServer = async () => {
 
   // Serve static assets in production
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../../client/build')));
+    app.use(express.static(path.join(__dirname, '../../client/dist')));
   }
 
- 
   await db;
   //db.once('open', () => {
     app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}/graphql`));
-    console.log("wqkofkneowkd;elmfv;ekosf;")
+    
  // });
   
 };
